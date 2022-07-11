@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void	first(void)
+void	first()
 {
 	printf("I'm first\n");
 }

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void	third(void)
+void	third()
 {
 	printf("I'm third\n");
 }
