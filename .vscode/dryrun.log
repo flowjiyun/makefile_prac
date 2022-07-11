@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/jiyunpar/Desktop/pjt/makefile_prac'
+make: Leaving directory `/Users/jiyunpar/Desktop/pjt/makefile_prac'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
