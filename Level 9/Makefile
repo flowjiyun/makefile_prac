@@ -1,10 +1,10 @@
+.PHONY : all clean fclean
+
 NAME := main
 
 SRC_DIR = ./src/
 SRC_NAME = main.c \
-					first.c \
-					second.c \
-					third.c
+			fourth.c
 SRC = $(addprefix $(SRC_DIR),$(SRC_NAME))
 
 OBJ_DIR = ./obj/
@@ -22,7 +22,8 @@ INCLUDE := -I./include -I./lib
 all : $(NAME)
 
 clean :
-		rm -f $(OBJ)
+		rm -rf $(OBJ)
+		make -C $(LIB_DIR) clean
 
 fclean : clean
 		rm -f $(NAME)
@@ -32,12 +33,10 @@ re : fclean all
 run : all
 		./$(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(LIB) $(OBJ)
 		$(CC) $(CFLAGS) -o $@ $^
-$(LIBFT) : $(LI
-		$(AR) $(ARFLAGS) $@ $?
+$(LIB) :
+		make -C $(LIB_DIR) all
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
-		@mkdir -p $(OBJ_DIR)
+		mkdir -p $(OBJ_DIR)
 		$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-.PHONY : all clean fclean
